@@ -1,10 +1,12 @@
 package com.palmdev.findamovie.presentation.screens
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.palmdev.findamovie.MAIN
 import com.palmdev.findamovie.MOVIE_IMAGE_PATH
 import com.palmdev.findamovie.R
 import com.palmdev.findamovie.domain.entity.Movie
@@ -44,19 +46,6 @@ class MovieAdapter(private val adapterType: AdapterType) :
         return listMovie.size
     }
 
-
-
-    override fun onViewAttachedToWindow(holder: MovieViewHolder) {
-        super.onViewAttachedToWindow(holder)
-        holder.itemView.setOnClickListener {
-            MainFragment.clickMovie(listMovie[holder.adapterPosition])
-        }
-    }
-
-    override fun onViewDetachedFromWindow(holder: MovieViewHolder) {
-        holder.itemView.setOnClickListener(null)
-    }
-
     class MovieViewHolder(private val view: View, private val adapterType: AdapterType) :
         RecyclerView.ViewHolder(view) {
 
@@ -78,6 +67,12 @@ class MovieAdapter(private val adapterType: AdapterType) :
                         .placeholder(R.drawable.ic_launcher_background) // TODO to change placeholder
                         .into(view.movieImg)
                 }
+            }
+
+            view.rootView.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putSerializable(MainFragment.MOVIE_ARG, movie)
+                MAIN.navController.navigate(R.id.action_mainFragment_to_detailsFragment, bundle)
             }
         }
     }

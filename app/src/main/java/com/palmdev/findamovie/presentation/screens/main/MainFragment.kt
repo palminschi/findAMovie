@@ -51,14 +51,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     companion object {
-
         const val MOVIE_ARG = "MOVIE_ARG"
-
-        fun clickMovie(itemMovie: Movie) {
-            val bundle = Bundle()
-            bundle.putSerializable(MOVIE_ARG, itemMovie)
-            MAIN.navController.navigate(R.id.action_mainFragment_to_detailsFragment, bundle)
-        }
     }
 
 }

@@ -1,9 +1,6 @@
 package com.palmdev.findamovie.di
 
-import com.palmdev.findamovie.domain.usecase.DeleteFavoriteMovieUseCase
-import com.palmdev.findamovie.domain.usecase.GetFavoriteMoviesUseCase
-import com.palmdev.findamovie.domain.usecase.GetUpcomingMoviesUseCase
-import com.palmdev.findamovie.domain.usecase.SaveFavoriteMovieUseCase
+import com.palmdev.findamovie.domain.usecase.*
 import org.koin.dsl.module
 
 val domainModule = module {
@@ -22,6 +19,10 @@ val domainModule = module {
 
     factory {
         DeleteFavoriteMovieUseCase(favoriteMoviesRepository = get())
+    }
+
+    factory {
+        GetFavoritesMoviesIDUseCase(favoriteMoviesRepository = get())
     }
 
 }

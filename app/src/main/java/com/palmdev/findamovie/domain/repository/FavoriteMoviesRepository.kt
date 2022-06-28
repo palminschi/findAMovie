@@ -10,4 +10,6 @@ interface FavoriteMoviesRepository {
     suspend fun saveMovie(movie: Movie)
 
     suspend fun deleteMovie(movieID: Int)
+
+    fun getMoviesID(): List<String>
 }

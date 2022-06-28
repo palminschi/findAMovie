@@ -9,6 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.palmdev.findamovie.Const
 import com.palmdev.findamovie.MAIN
 import com.palmdev.findamovie.R
+import com.palmdev.findamovie.data.storage.FavoriteMoviesIDStorage
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
+
     }
 
 }

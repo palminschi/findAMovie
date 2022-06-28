@@ -5,11 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.palmdev.findamovie.R
 import com.palmdev.findamovie.databinding.FragmentFavoritesBinding
-import com.palmdev.findamovie.presentation.screens.main.MainAdapter
+import com.palmdev.findamovie.presentation.screens.MovieAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
@@ -17,7 +16,7 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
     private var mBinding: FragmentFavoritesBinding? = null
     private val binding get() = mBinding!!
     private lateinit var recyclerView: RecyclerView
-    private val adapter by lazy { MainAdapter() }
+    private val adapter by lazy { MovieAdapter(MovieAdapter.AdapterType.DETAILED) }
     private val viewModel: FavoritesViewModel by viewModel()
 
     override fun onCreateView(

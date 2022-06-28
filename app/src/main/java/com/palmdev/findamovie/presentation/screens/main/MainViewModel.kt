@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.palmdev.findamovie.Const
 import com.palmdev.findamovie.data.repository.MovieRepositoryImpl
 import com.palmdev.findamovie.domain.entity.MoviesPage
 import com.palmdev.findamovie.domain.usecase.GetUpcomingMoviesUseCase
@@ -16,7 +17,7 @@ class MainViewModel(private val getUpcomingMoviesUseCase: GetUpcomingMoviesUseCa
 
     fun getUpcomingMovies() {
         viewModelScope.launch {
-            _upcomingMovies.value = getUpcomingMoviesUseCase.invoke()
+            _upcomingMovies.value = getUpcomingMoviesUseCase.invoke(language = Const.getUserLanguage())
         }
     }
 }

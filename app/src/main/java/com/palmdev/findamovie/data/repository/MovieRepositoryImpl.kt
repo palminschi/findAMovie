@@ -9,9 +9,12 @@ class MovieRepositoryImpl(private val apiService: ApiService) : MovieRepository 
 
     private val moviesPageMapper = MoviesPageMapper()
 
-    override suspend fun getUpcomingMovies(): MoviesPage? {
-        return apiService.getUpcomingMovies().body()?.let {
-                moviesPageMapper.mapToDomain(it)
-            }
+    override suspend fun getUpcomingMovies(
+        language: String,
+        page: Int
+    ): MoviesPage? {
+        return apiService.getUpcomingMovies(language, page).body()?.let {
+            moviesPageMapper.mapToDomain(it)
+        }
     }
 }

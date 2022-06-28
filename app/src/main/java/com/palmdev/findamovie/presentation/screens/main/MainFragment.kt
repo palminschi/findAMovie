@@ -10,6 +10,7 @@ import com.palmdev.findamovie.MAIN
 import com.palmdev.findamovie.R
 import com.palmdev.findamovie.databinding.FragmentMainBinding
 import com.palmdev.findamovie.domain.entity.Movie
+import com.palmdev.findamovie.presentation.screens.MovieAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -17,7 +18,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private var mBinding: FragmentMainBinding? = null
     private val binding get() = mBinding!!
     private lateinit var recyclerView: RecyclerView
-    private val adapter by lazy { MainAdapter() }
+    private val adapter by lazy { MovieAdapter(adapterType = MovieAdapter.AdapterType.SIMPLE) }
     private val viewModel: MainViewModel by viewModel()
 
     override fun onCreateView(

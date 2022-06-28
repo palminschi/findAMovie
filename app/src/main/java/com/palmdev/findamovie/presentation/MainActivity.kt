@@ -6,8 +6,10 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.palmdev.findamovie.Const
 import com.palmdev.findamovie.MAIN
 import com.palmdev.findamovie.R
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         MAIN = this
+        Const.setUserLanguage(Locale.getDefault().language)
 
         // Setup navigation
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment

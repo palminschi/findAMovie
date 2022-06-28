@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/recViewMain"
         tools:itemCount="3"
-        tools:listitem="@layout/item_movie"
+        tools:listitem="@layout/item_movie_detailed"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 </FrameLayout>

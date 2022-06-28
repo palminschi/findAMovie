@@ -14,11 +14,11 @@ class App : Application() {
             androidContext(this@App)
             modules(
                 listOf(
-                    presentationModule,
+                    databaseModule,
+                    networkModule,
                     dataModule,
                     domainModule,
-                    databaseModule,
-                    networkModule
+                    presentationModule
                 )
             )
         }

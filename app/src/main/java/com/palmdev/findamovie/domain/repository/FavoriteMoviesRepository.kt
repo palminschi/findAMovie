@@ -1,14 +1,13 @@
 package com.palmdev.findamovie.domain.repository
 
-import androidx.lifecycle.LiveData
-import com.palmdev.findamovie.data.entity.MovieEntity
 import com.palmdev.findamovie.domain.entity.Movie
+import kotlinx.coroutines.flow.Flow
 
 interface FavoriteMoviesRepository {
 
-    val favoriteMovies: LiveData<List<Movie>>
+    val favoriteMovies: Flow<List<Movie>>
 
     suspend fun saveMovie(movie: Movie)
 
-    suspend fun deleteMovie(movie: Movie)
+    suspend fun deleteMovie(movieID: Int)
 }

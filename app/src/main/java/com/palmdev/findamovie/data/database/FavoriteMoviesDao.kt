@@ -1,18 +1,19 @@
 package com.palmdev.findamovie.data.database
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.palmdev.findamovie.data.entity.MovieEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FavoriteMoviesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveMovie(movieEntity: MovieEntity)
+    fun saveFavoriteMovie(movieEntity: MovieEntity)
 
-    @Delete
-    suspend fun deleteMovie(movieEntity: MovieEntity)
+    @Query("DELETE FROM movie_table WHERE `id` = :id")
+    fun deleteFavoriteMovie(id: Int)
 
     @Query("SELECT * FROM movie_table")
-    fun getFavoriteMovies(): LiveData<List<MovieEntity>>
+    fun getFavoriteMovies(): Flow<List<MovieEntity>>
+
 }

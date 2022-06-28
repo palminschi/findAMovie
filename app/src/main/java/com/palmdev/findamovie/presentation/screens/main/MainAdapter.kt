@@ -8,8 +8,8 @@ import com.bumptech.glide.Glide
 import com.palmdev.findamovie.MOVIE_IMAGE_PATH
 import com.palmdev.findamovie.R
 import com.palmdev.findamovie.domain.entity.Movie
-import kotlinx.android.synthetic.main.fragment_details.view.movieImg
 import kotlinx.android.synthetic.main.item_movie.view.*
+
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 

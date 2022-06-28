@@ -9,14 +9,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.palmdev.findamovie.R
 import com.palmdev.findamovie.databinding.FragmentFavoritesBinding
+import com.palmdev.findamovie.presentation.screens.main.MainAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
 
     private var mBinding: FragmentFavoritesBinding? = null
     private val binding get() = mBinding!!
     private lateinit var recyclerView: RecyclerView
-    private val adapter by lazy { FavoritesAdapter() }
-    private lateinit var viewModel: FavoritesViewModel
+    private val adapter by lazy { MainAdapter() }
+    private val viewModel: FavoritesViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,9 +34,12 @@ class FavoritesFragment : Fragment(R.layout.fragment_favorites) {
     }
 
     private fun init() {
-        viewModel = ViewModelProvider(this)[FavoritesViewModel::class.java]
         recyclerView = binding.recViewFavorites
-        //recyclerView.adapter = adapter
+        recyclerView.adapter = adapter
+        viewModel.getMovies()
+        viewModel.favoriteMovies.observe(viewLifecycleOwner) {
+            adapter.setMovies(it.asReversed())
+        }
     }
 
     override fun onDestroyView() {

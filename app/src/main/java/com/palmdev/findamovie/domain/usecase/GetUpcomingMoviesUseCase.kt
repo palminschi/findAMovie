@@ -1,7 +1,7 @@
 package com.palmdev.findamovie.domain.usecase
 
 import com.palmdev.findamovie.DEFAULT_LANGUAGE
-import com.palmdev.findamovie.domain.entity.MoviesPage
+import com.palmdev.findamovie.domain.entity.movie.MoviesPage
 import com.palmdev.findamovie.domain.repository.MovieRepository
 
 class GetUpcomingMoviesUseCase(private val movieRepository: MovieRepository) {

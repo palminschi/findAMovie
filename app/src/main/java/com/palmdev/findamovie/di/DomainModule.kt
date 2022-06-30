@@ -25,4 +25,8 @@ val domainModule = module {
         GetFavoritesMoviesIDUseCase(favoriteMoviesRepository = get())
     }
 
+    factory {
+        SearchUseCase(movieRepository = get())
+    }
+
 }

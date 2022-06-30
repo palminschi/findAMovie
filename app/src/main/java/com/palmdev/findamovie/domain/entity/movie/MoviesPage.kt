@@ -1,4 +1,6 @@
-package com.palmdev.findamovie.domain.entity
+package com.palmdev.findamovie.domain.entity.movie
+
+import com.palmdev.findamovie.domain.entity.movie.Movie
 
 data class MoviesPage(
     val page: Int,

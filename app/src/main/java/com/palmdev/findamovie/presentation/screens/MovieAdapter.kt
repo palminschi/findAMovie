@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.palmdev.findamovie.MAIN
 import com.palmdev.findamovie.MOVIE_IMAGE_PATH
 import com.palmdev.findamovie.R
-import com.palmdev.findamovie.domain.entity.Movie
+import com.palmdev.findamovie.domain.entity.movie.Movie
 import com.palmdev.findamovie.presentation.screens.main.MainFragment
 import kotlinx.android.synthetic.main.item_movie_detailed.view.*
 import kotlinx.android.synthetic.main.item_movie_detailed.view.movieImg

@@ -1,25 +1,24 @@
 package com.palmdev.findamovie.data.mappers
 
-import com.palmdev.findamovie.data.entity.MoviesPageEntity
-import com.palmdev.findamovie.domain.entity.Movie
-import com.palmdev.findamovie.domain.entity.MoviesPage
+import com.palmdev.findamovie.data.entity.movie.MoviesPageDto
+import com.palmdev.findamovie.domain.entity.movie.MoviesPage
 
-class MoviesPageMapper {
-    fun mapToDomain(moviesPageEntity: MoviesPageEntity): MoviesPage {
+class MoviesPageMapper: Mapper<MoviesPageDto, MoviesPage> {
+    override fun mapToDomain(dataModel: MoviesPageDto): MoviesPage {
         return MoviesPage(
-            page = moviesPageEntity.page,
-            results = moviesPageEntity.results.map { MovieMapper().mapToDomain(it) },
-            total_pages = moviesPageEntity.total_pages,
-            total_results = moviesPageEntity.total_results
+            page = dataModel.page,
+            results = dataModel.results.map { MovieMapper().mapToDomain(it) },
+            total_pages = dataModel.total_pages,
+            total_results = dataModel.total_results
         )
     }
 
-    fun mapToData(moviesPage: MoviesPage): MoviesPageEntity {
-        return MoviesPageEntity(
-            page = moviesPage.page,
-            results = moviesPage.results.map { MovieMapper().mapToData(it) },
-            total_pages = moviesPage.total_pages,
-            total_results = moviesPage.total_results
+    override fun mapToData(domainModel: MoviesPage): MoviesPageDto {
+        return MoviesPageDto(
+            page = domainModel.page,
+            results = domainModel.results.map { MovieMapper().mapToData(it) },
+            total_pages = domainModel.total_pages,
+            total_results = domainModel.total_results
         )
     }
 }

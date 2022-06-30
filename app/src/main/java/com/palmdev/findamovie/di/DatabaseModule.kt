@@ -4,30 +4,38 @@ import androidx.room.Room
 import com.palmdev.findamovie.DATABASE_NAME
 import com.palmdev.findamovie.MAIN
 import com.palmdev.findamovie.data.database.FavoriteMoviesDao
-import com.palmdev.findamovie.data.database.FavoriteMoviesDatabase
+import com.palmdev.findamovie.data.database.FavoriteTVShowsDao
+import com.palmdev.findamovie.data.database.FavoritesDatabase
 import org.koin.dsl.module
 
 val databaseModule = module {
 
-    fun provideDatabase(): FavoriteMoviesDatabase {
+    fun provideDatabase(): FavoritesDatabase {
         return Room
-            .databaseBuilder(MAIN, FavoriteMoviesDatabase::class.java, DATABASE_NAME)
+            .databaseBuilder(MAIN, FavoritesDatabase::class.java, DATABASE_NAME)
             .fallbackToDestructiveMigration()
             .build()
     }
 
-    fun provideDao(database: FavoriteMoviesDatabase): FavoriteMoviesDao {
+    fun provideMoviesDao(database: FavoritesDatabase): FavoriteMoviesDao {
         return database.favoriteMoviesDao()
     }
 
-    single<FavoriteMoviesDatabase> {
+    fun provideTVShowsDao(database: FavoritesDatabase): FavoriteTVShowsDao {
+        return database.favoriteTVShowsDao()
+    }
+
+    single<FavoritesDatabase> {
         provideDatabase()
     }
 
     single<FavoriteMoviesDao> {
-        provideDao(database = get())
+        provideMoviesDao(database = get())
     }
 
+    single<FavoriteTVShowsDao> {
+        provideTVShowsDao(database = get())
+    }
 
 
 

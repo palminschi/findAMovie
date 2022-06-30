@@ -3,16 +3,16 @@ package com.palmdev.findamovie.data.repository
 import com.palmdev.findamovie.data.database.FavoriteMoviesDao
 import com.palmdev.findamovie.data.mappers.MovieMapper
 import com.palmdev.findamovie.data.storage.FavoriteMoviesIDStorage
-import com.palmdev.findamovie.domain.entity.Movie
-import com.palmdev.findamovie.domain.repository.FavoriteMoviesRepository
+import com.palmdev.findamovie.domain.entity.movie.Movie
+import com.palmdev.findamovie.domain.repository.FavoritesRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class FavoriteMoviesRepositoryImpl(
+class FavoritesRepositoryImpl(
     private val favoriteMoviesDao: FavoriteMoviesDao,
     private val favoriteMoviesIDStorage: FavoriteMoviesIDStorage
 ) :
-    FavoriteMoviesRepository {
+    FavoritesRepository {
 
     private val movieMapper = MovieMapper()
 
@@ -29,8 +29,8 @@ class FavoriteMoviesRepositoryImpl(
                 .contains(movie.id.toString())
         ) return
 
-        val movieEntity = movieMapper.mapToData(movie = movie)
-        favoriteMoviesDao.saveFavoriteMovie(movieEntity = movieEntity)
+        val movieEntity = movieMapper.mapToData(domainModel = movie)
+        favoriteMoviesDao.saveFavoriteMovie(movieDto = movieEntity)
         favoriteMoviesIDStorage.addFavoriteMovieID(movieID = movie.id.toString())
     }
 

@@ -1,11 +1,11 @@
 package com.palmdev.findamovie.domain.usecase
 
-import com.palmdev.findamovie.domain.repository.FavoriteMoviesRepository
+import com.palmdev.findamovie.domain.repository.FavoritesRepository
 
-class DeleteFavoriteMovieUseCase(private val favoriteMoviesRepository: FavoriteMoviesRepository) {
+class DeleteFavoriteMovieUseCase(private val favoritesRepository: FavoritesRepository) {
 
     suspend fun invoke(movieID: Int){
-        favoriteMoviesRepository.deleteMovie(movieID)
+        favoritesRepository.deleteMovie(movieID)
     }
 
 }

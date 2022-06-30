@@ -1,9 +1,9 @@
 package com.palmdev.findamovie.domain.repository
 
-import com.palmdev.findamovie.domain.entity.Movie
+import com.palmdev.findamovie.domain.entity.movie.Movie
 import kotlinx.coroutines.flow.Flow
 
-interface FavoriteMoviesRepository {
+interface FavoritesRepository {
 
     val favoriteMovies: Flow<List<Movie>>
 

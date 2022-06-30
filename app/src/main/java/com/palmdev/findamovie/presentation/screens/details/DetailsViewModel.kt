@@ -2,7 +2,7 @@ package com.palmdev.findamovie.presentation.screens.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.palmdev.findamovie.domain.entity.Movie
+import com.palmdev.findamovie.domain.entity.movie.Movie
 import com.palmdev.findamovie.domain.usecase.SaveFavoriteMovieUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

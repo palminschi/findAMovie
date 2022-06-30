@@ -1,14 +1,13 @@
 package com.palmdev.findamovie.domain.usecase
 
-import androidx.lifecycle.LiveData
-import com.palmdev.findamovie.domain.entity.Movie
-import com.palmdev.findamovie.domain.repository.FavoriteMoviesRepository
+import com.palmdev.findamovie.domain.entity.movie.Movie
+import com.palmdev.findamovie.domain.repository.FavoritesRepository
 import kotlinx.coroutines.flow.Flow
 
-class GetFavoriteMoviesUseCase(private val favoriteMoviesRepository: FavoriteMoviesRepository) {
+class GetFavoriteMoviesUseCase(private val favoritesRepository: FavoritesRepository) {
 
     fun invoke(): Flow<List<Movie>> {
-        return favoriteMoviesRepository.favoriteMovies
+        return favoritesRepository.favoriteMovies
     }
 
 }

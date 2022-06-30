@@ -1,11 +1,11 @@
-package com.palmdev.findamovie.data.entity
+package com.palmdev.findamovie.data.entity.movie
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.palmdev.findamovie.MOVIE_TABLE
 
 @Entity(tableName = MOVIE_TABLE)
-data class MovieEntity(
+data class MovieDto(
     @PrimaryKey(autoGenerate = true)
     val database_id: Int? = null,
     val id: Int,
@@ -15,7 +15,7 @@ data class MovieEntity(
     val original_title: String,
     val overview: String,
     val popularity: Double,
-    val poster_path: String,
+    val poster_path: String?,
     val release_date: String,
     val title: String,
     val video: Boolean,

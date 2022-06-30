@@ -1,4 +1,4 @@
-package com.palmdev.findamovie.domain.entity
+package com.palmdev.findamovie.domain.entity.movie
 
 import java.io.Serializable
 
@@ -10,7 +10,7 @@ data class Movie(
     val original_title: String,
     val overview: String,
     val popularity: Double,
-    val poster_path: String,
+    val poster_path: String?,
     val release_date: String,
     val title: String,
     val video: Boolean,

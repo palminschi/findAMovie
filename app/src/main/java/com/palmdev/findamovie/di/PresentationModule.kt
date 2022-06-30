@@ -18,7 +18,8 @@ val presentationModule = module {
 
     viewModel {
         FavoritesViewModel(
-            getFavoriteMoviesUseCase = get()
+            getFavoriteMoviesUseCase = get(),
+            get()
         )
     }
 }

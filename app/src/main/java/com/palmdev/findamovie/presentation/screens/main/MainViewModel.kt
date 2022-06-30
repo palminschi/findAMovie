@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.palmdev.findamovie.Const
 import com.palmdev.findamovie.domain.entity.movie.MoviesPage
-import com.palmdev.findamovie.domain.usecase.GetUpcomingMoviesUseCase
+import com.palmdev.findamovie.domain.usecase.movie.GetUpcomingMoviesUseCase
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val getUpcomingMoviesUseCase: GetUpcomingMoviesUseCase) : ViewModel() {

@@ -29,6 +29,13 @@ class FavoritesRepositoryImpl(
             }
         }
 
+    override val favoriteTVShows: Flow<List<TVShow>>
+        get() = favoriteTVShowsDao.getFavoriteTVShows().map { list ->
+            list.map {
+                tvShowMapper.mapToDomain(it)
+            }
+        }
+
     override val favoriteMoviesID: List<String>
         get() = favoriteMoviesIDStorage.getFavoriteMoviesID()
 

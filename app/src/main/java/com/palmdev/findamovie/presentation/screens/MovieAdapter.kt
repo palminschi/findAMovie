@@ -72,7 +72,7 @@ class MovieAdapter(private val adapterType: AdapterType) :
             view.rootView.setOnClickListener {
                 val bundle = Bundle()
                 bundle.putSerializable(MainFragment.MOVIE_ARG, movie)
-                MAIN.navController.navigate(R.id.action_mainFragment_to_detailsFragment, bundle)
+                MAIN.navController.navigate(R.id.detailsFragment, bundle)
             }
         }
     }

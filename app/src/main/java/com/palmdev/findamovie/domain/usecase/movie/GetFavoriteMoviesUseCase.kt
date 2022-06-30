@@ -1,4 +1,4 @@
-package com.palmdev.findamovie.domain.usecase
+package com.palmdev.findamovie.domain.usecase.movie
 
 import com.palmdev.findamovie.domain.entity.movie.Movie
 import com.palmdev.findamovie.domain.repository.FavoritesRepository

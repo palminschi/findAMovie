@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.palmdev.findamovie.domain.entity.movie.Movie
-import com.palmdev.findamovie.domain.usecase.GetFavoriteMoviesUseCase
+import com.palmdev.findamovie.domain.usecase.movie.GetFavoriteMoviesUseCase
 import com.palmdev.findamovie.domain.usecase.SearchUseCase
 import kotlinx.coroutines.launch
 

@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface FavoritesRepository {
 
     val favoriteMovies: Flow<List<Movie>>
+    val favoriteTVShows: Flow<List<TVShow>>
     val favoriteMoviesID: List<String>
     val favoriteTVShowsID: List<String>
 

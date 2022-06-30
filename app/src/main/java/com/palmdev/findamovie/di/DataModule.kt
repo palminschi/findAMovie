@@ -5,6 +5,7 @@ import com.palmdev.findamovie.data.repository.MovieRepositoryImpl
 import com.palmdev.findamovie.data.repository.SearchRepositoryImpl
 import com.palmdev.findamovie.data.repository.TVShowRepositoryImpl
 import com.palmdev.findamovie.data.storage.FavoriteMoviesIDStorage
+import com.palmdev.findamovie.data.storage.FavoriteTVShowsIDStorage
 import com.palmdev.findamovie.domain.repository.FavoritesRepository
 import com.palmdev.findamovie.domain.repository.MovieRepository
 import com.palmdev.findamovie.domain.repository.SearchRepository
@@ -17,7 +18,9 @@ val dataModule = module {
     single<FavoritesRepository> {
         FavoritesRepositoryImpl(
             favoriteMoviesDao = get(),
-            favoriteMoviesIDStorage = get()
+            favoriteTVShowsDao = get(),
+            favoriteMoviesIDStorage = get(),
+            favoriteTVShowsIDStorage = get()
         )
     }
 
@@ -35,6 +38,10 @@ val dataModule = module {
 
     single {
         FavoriteMoviesIDStorage(context = androidApplication())
+    }
+
+    single {
+        FavoriteTVShowsIDStorage(context = androidApplication())
     }
 
 }

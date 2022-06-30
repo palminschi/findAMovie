@@ -13,6 +13,9 @@ interface FavoriteTVShowsDao {
     @Query("DELETE FROM tv_show_table WHERE `id` = :id")
     fun deleteFavoriteTVShow(id: Int)
 
+    @Query("DELETE FROM tv_show_table")
+    fun deleteAll()
+
     @Query("SELECT * FROM tv_show_table")
     fun getFavoriteTVShow(): Flow<List<TVShowDto>>
 

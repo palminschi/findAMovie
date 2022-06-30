@@ -5,7 +5,7 @@ import com.palmdev.findamovie.domain.repository.FavoritesRepository
 class GetFavoritesMoviesIDUseCase(private val favoritesRepository: FavoritesRepository) {
 
     fun invoke(): List<String> {
-        return favoritesRepository.getMoviesID()
+        return favoritesRepository.favoriteMoviesID
     }
 
 }

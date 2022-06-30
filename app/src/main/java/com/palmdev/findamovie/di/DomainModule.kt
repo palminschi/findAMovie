@@ -10,23 +10,23 @@ val domainModule = module {
     }
 
     factory {
-        GetFavoriteMoviesUseCase(favoriteMoviesRepository = get())
+        GetFavoriteMoviesUseCase(favoritesRepository = get())
     }
 
     factory {
-        SaveFavoriteMovieUseCase(favoriteMoviesRepository = get())
+        SaveFavoriteMovieUseCase(favoritesRepository = get())
     }
 
     factory {
-        DeleteFavoriteMovieUseCase(favoriteMoviesRepository = get())
+        DeleteFavoriteMovieUseCase(favoritesRepository = get())
     }
 
     factory {
-        GetFavoritesMoviesIDUseCase(favoriteMoviesRepository = get())
+        GetFavoritesMoviesIDUseCase(favoritesRepository = get())
     }
 
     factory {
-        SearchUseCase(movieRepository = get())
+        SearchUseCase(searchRepository = get())
     }
 
 }

@@ -13,6 +13,9 @@ interface FavoriteMoviesDao {
     @Query("DELETE FROM movie_table WHERE `id` = :id")
     fun deleteFavoriteMovie(id: Int)
 
+    @Query("DELETE FROM movie_table")
+    fun deleteAll()
+
     @Query("SELECT * FROM movie_table")
     fun getFavoriteMovies(): Flow<List<MovieDto>>
 

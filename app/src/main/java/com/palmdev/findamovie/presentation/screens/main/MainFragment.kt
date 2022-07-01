@@ -5,17 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import com.palmdev.findamovie.R
 import com.palmdev.findamovie.databinding.FragmentMainBinding
 import com.palmdev.findamovie.presentation.screens.MovieAdapter
+import com.palmdev.findamovie.presentation.screens.TVShowAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
     private var mBinding: FragmentMainBinding? = null
     private val binding get() = mBinding!!
-    private lateinit var recyclerView: RecyclerView
     private val adapter by lazy { MovieAdapter(adapterType = MovieAdapter.AdapterType.SIMPLE) }
     private val viewModel: MainViewModel by viewModel()
 
@@ -33,12 +32,53 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun init() {
-        viewModel.getUpcomingMovies()
-        recyclerView = binding.recViewMain
-        recyclerView.adapter = adapter
+        viewModel.getMovies()
+        binding.searchEditText.clearFocus()
+        binding.searchEditText.focusable = View.NOT_FOCUSABLE
+
+        val nowPlayingMoviesAdapter = MovieAdapter(MovieAdapter.AdapterType.SIMPLE)
+        val popularTVShowsAdapter = TVShowAdapter(TVShowAdapter.AdapterType.SIMPLE)
+        val upcomingMoviesAdapter = MovieAdapter(MovieAdapter.AdapterType.SIMPLE)
+        val topRatedTVAdapter = TVShowAdapter(TVShowAdapter.AdapterType.SIMPLE)
+        val popularMoviesAdapter = MovieAdapter(MovieAdapter.AdapterType.SIMPLE)
+        val topRatedMoviesAdapter = MovieAdapter(MovieAdapter.AdapterType.SIMPLE)
+
+        binding.nowPlayingMoviesRecyclerView.adapter = nowPlayingMoviesAdapter
+        binding.popularTVShowsRecyclerView.adapter = popularTVShowsAdapter
+        binding.upcomingRecyclerView.adapter = upcomingMoviesAdapter
+        binding.topRatedTVRecyclerView.adapter = topRatedTVAdapter
+        binding.popularMoviesRecyclerView.adapter = popularMoviesAdapter
+        binding.topRatedMoviesRecyclerView.adapter = topRatedMoviesAdapter
+
+
         viewModel.upcomingMovies.observe(viewLifecycleOwner) { moviesPage ->
             moviesPage?.results?.let { movies ->
-                adapter.setMovies(list = movies)
+                upcomingMoviesAdapter.setMovies(list = movies)
+            }
+        }
+        viewModel.nowPlayingMovies.observe(viewLifecycleOwner) { moviesPage ->
+            moviesPage?.results?.let { movies ->
+                nowPlayingMoviesAdapter.setMovies(list = movies)
+            }
+        }
+        viewModel.popularTVShows.observe(viewLifecycleOwner) { moviesPage ->
+            moviesPage?.results?.let { list ->
+                popularTVShowsAdapter.setTVShows(list = list)
+            }
+        }
+        viewModel.topRatedTVShows.observe(viewLifecycleOwner) { moviesPage ->
+            moviesPage?.results?.let { list ->
+                topRatedTVAdapter.setTVShows(list = list)
+            }
+        }
+        viewModel.popularMovies.observe(viewLifecycleOwner) { moviesPage ->
+            moviesPage?.results?.let { list ->
+                popularMoviesAdapter.setMovies(list = list)
+            }
+        }
+        viewModel.topRatedMovies.observe(viewLifecycleOwner) { moviesPage ->
+            moviesPage?.results?.let { list ->
+                topRatedMoviesAdapter.setMovies(list = list)
             }
         }
     }

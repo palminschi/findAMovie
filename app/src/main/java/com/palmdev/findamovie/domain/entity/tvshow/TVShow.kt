@@ -1,5 +1,7 @@
 package com.palmdev.findamovie.domain.entity.tvshow
 
+import java.io.Serializable
+
 data class TVShow(
     val database_id: Int? = null,
     val backdrop_path: String?,
@@ -13,4 +15,4 @@ data class TVShow(
     val poster_path: String?,
     val vote_average: Double,
     val vote_count: Int
-)
+): Serializable

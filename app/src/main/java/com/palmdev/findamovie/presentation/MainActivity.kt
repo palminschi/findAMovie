@@ -2,6 +2,7 @@ package com.palmdev.findamovie.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -28,6 +29,11 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
     }
 
 }

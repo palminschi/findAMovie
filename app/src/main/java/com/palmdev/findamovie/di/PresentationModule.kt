@@ -9,7 +9,14 @@ import org.koin.dsl.module
 val presentationModule = module {
 
     viewModel {
-        MainViewModel(getUpcomingMoviesUseCase = get())
+        MainViewModel(
+            getUpcomingMoviesUseCase = get(),
+            getNowPlayingMoviesUseCase = get(),
+            getPopularMoviesUseCase = get(),
+            getTopRatedMoviesUseCase = get(),
+            getTopRatedTVShowsUseCase = get(),
+            getPopularTVShowsUseCase = get()
+        )
     }
 
     viewModel {

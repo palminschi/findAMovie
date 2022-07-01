@@ -13,8 +13,14 @@ class GetTVShowVideoUseCase(private val tvShowRepository: TVShowRepository) {
 
         val videos = tvShowRepository.getTVShowVideos(tvID, language)?.results
 
-        val video: Video? = videos?.find {
-            it.iso_639_1 == language
+        var video: Video? = videos?.find {
+            it.iso_639_1 == language && it.site == "YouTube"
+        }
+        // if there's no video in user language
+        if (video == null) {
+            video = videos?.find {
+                it.iso_639_1 == DEFAULT_LANGUAGE && it.site == "YouTube"
+            }
         }
 
         return video

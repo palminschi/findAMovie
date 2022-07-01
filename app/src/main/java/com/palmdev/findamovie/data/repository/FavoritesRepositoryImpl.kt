@@ -6,7 +6,6 @@ import com.palmdev.findamovie.data.mappers.MovieMapper
 import com.palmdev.findamovie.data.mappers.TVShowMapper
 import com.palmdev.findamovie.data.storage.FavoriteMoviesIDStorage
 import com.palmdev.findamovie.data.storage.FavoriteTVShowsIDStorage
-import com.palmdev.findamovie.domain.entity.movie.Movie
 import com.palmdev.findamovie.domain.entity.tvshow.TVShow
 import com.palmdev.findamovie.domain.repository.FavoritesRepository
 import kotlinx.coroutines.flow.Flow
@@ -22,7 +21,7 @@ class FavoritesRepositoryImpl(
     private val movieMapper = MovieMapper()
     private val tvShowMapper = TVShowMapper()
 
-    override val favoriteMovies: Flow<List<Movie>>
+    override val favoriteMovies: Flow<List<com.palmdev.findamovie.domain.entity.movie.Movie>>
         get() = favoriteMoviesDao.getFavoriteMovies().map { list ->
             list.map {
                 movieMapper.mapToDomain(it)
@@ -42,7 +41,7 @@ class FavoritesRepositoryImpl(
     override val favoriteTVShowsID: List<String>
         get() = favoriteTVShowsIDStorage.getFavoriteTVShowsID()
 
-    override suspend fun saveMovie(movie: Movie) {
+    override suspend fun saveMovie(movie: com.palmdev.findamovie.domain.entity.movie.Movie) {
         // return if it already contains this movie
         if (favoriteMoviesIDStorage.getFavoriteMoviesID()
                 .contains(movie.id.toString())

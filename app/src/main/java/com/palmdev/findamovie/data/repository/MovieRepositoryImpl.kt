@@ -67,9 +67,15 @@ class MovieRepositoryImpl(private val apiService: ApiService) : MovieRepository 
     }
 
     override suspend fun getMovieReviews(movieID: Int, language: String): ListOfReviews? {
-        return apiService.getMovieReviews(movieID, language).body()?.let {
+        val list = apiService.getMovieReviews(movieID, language).body()
+        list?.let {
+            if (it.total_results == 0) return null
+        }
+        return list?.let {
             listOfReviewsMapper.mapToDomain(it)
         }
+
+
     }
 
 }

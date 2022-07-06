@@ -3,7 +3,7 @@ package com.palmdev.findamovie.data.mappers
 import com.palmdev.findamovie.data.entity.ListOfReviewsDto
 import com.palmdev.findamovie.domain.entity.ListOfReviews
 
-class ListOfReviewsMapper: Mapper<ListOfReviewsDto, ListOfReviews> {
+class ListOfReviewsMapper : Mapper<ListOfReviewsDto, ListOfReviews> {
     override fun mapToDomain(dataModel: ListOfReviewsDto): ListOfReviews {
         return ListOfReviews(
             id = dataModel.id,

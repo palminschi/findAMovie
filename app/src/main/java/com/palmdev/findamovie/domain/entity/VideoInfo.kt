@@ -1,6 +1,6 @@
 package com.palmdev.findamovie.domain.entity
 
-data class Video(
+data class VideoInfo(
     val id: String,
     val iso_3166_1: String,
     val iso_639_1: String,

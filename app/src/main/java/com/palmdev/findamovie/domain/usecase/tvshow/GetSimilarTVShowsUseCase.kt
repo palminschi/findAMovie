@@ -7,10 +7,10 @@ import com.palmdev.findamovie.domain.repository.TVShowRepository
 class GetSimilarTVShowsUseCase(private val tvShowRepository: TVShowRepository) {
 
     suspend fun invoke(
-        movieID: Int,
+        tvID: Int,
         language: String = DEFAULT_LANGUAGE
     ): TVShowsPage? {
-        return tvShowRepository.getSimilarTVShows(movieID, language)
+        return tvShowRepository.getSimilarTVShows(tvID, language)
     }
 
 }

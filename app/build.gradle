@@ -93,4 +93,6 @@ dependencies {
     implementation "io.insert-koin:koin-android:$koin_version"
     testImplementation "io.insert-koin:koin-test:$koin_version"
 
+    // YouTube Player
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.0.1'
 }

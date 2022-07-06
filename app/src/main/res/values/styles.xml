@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="TextViewStyle" parent="android:Widget.TextView">
+        <item name="font">@font/raleway_medium</item>
+        <item name="fontFamily">@font/raleway_medium</item>
+        <item name="android:font" tools:targetApi="o">@font/raleway_medium</item>
+        <item name="android:fontFamily" tools:targetApi="o">@font/raleway_medium</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ButtonStyle" parent="android:Widget.Button">
+        <item name="font">@font/raleway_medium</item>
+        <item name="fontFamily">@font/raleway_medium</item>
+        <item name="android:font" tools:targetApi="o">@font/raleway_medium</item>
+        <item name="android:fontFamily" tools:targetApi="o">@font/raleway_medium</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme"
+        parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_background</item>
+    </style>
+
+    <style name="FavoriteToggleButton" parent="android:Widget.Button.Toggle">
+        <item name="android:textOn">""</item>
+        <item name="android:textOff">""</item>
+        <item name="android:background">@drawable/favorite_toggle_button_background</item>
+    </style>
+</resources>

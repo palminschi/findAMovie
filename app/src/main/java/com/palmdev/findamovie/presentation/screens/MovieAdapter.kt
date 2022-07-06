@@ -7,15 +7,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.palmdev.findamovie.MAIN
-import com.palmdev.findamovie.MOVIE_IMAGE_PATH
+import com.palmdev.findamovie.IMAGE_URL
 import com.palmdev.findamovie.R
 import com.palmdev.findamovie.domain.entity.movie.Movie
-import com.palmdev.findamovie.presentation.screens.main.MainFragment
+import com.palmdev.findamovie.presentation.screens.movie_bottom_sheet.MovieBottomSheetDialogFragment
 import kotlinx.android.synthetic.main.item_movie_detailed.view.*
 import kotlinx.android.synthetic.main.item_movie_detailed.view.movieImg
 import kotlinx.android.synthetic.main.item_movie_detailed.view.movieTitle
 import kotlinx.android.synthetic.main.item_movie_simple.view.*
-
 
 
 class MovieAdapter(private val adapterType: AdapterType) :
@@ -53,9 +52,9 @@ class MovieAdapter(private val adapterType: AdapterType) :
             when (adapterType) {
                 AdapterType.SIMPLE -> {
                     view.movieTitle.text = movie.title
-                    view.movieVote.text = movie.vote_average.toString()
+                    view.movieVote.text = movie.vote_average.toString().subSequence(0,3)
                     Glide.with(view)
-                        .load(MOVIE_IMAGE_PATH + movie.poster_path)
+                        .load(IMAGE_URL + movie.poster_path)
                         .placeholder(R.drawable.image_loading)
                         .into(view.movieImg)
                 }
@@ -63,7 +62,7 @@ class MovieAdapter(private val adapterType: AdapterType) :
                     view.movieTitle.text = movie.title
                     view.movieDate.text = movie.release_date
                     Glide.with(view)
-                        .load(MOVIE_IMAGE_PATH + movie.poster_path)
+                        .load(IMAGE_URL + movie.poster_path)
                         .placeholder(R.drawable.image_loading)
                         .into(view.movieImg)
                 }
@@ -71,11 +70,18 @@ class MovieAdapter(private val adapterType: AdapterType) :
 
             view.rootView.setOnClickListener {
                 val bundle = Bundle()
-                bundle.putSerializable(MainFragment.MOVIE_ARG, movie)
-                MAIN.navController.navigate(R.id.detailsFragment, bundle)
+                bundle.putSerializable(MOVIE_ARG, movie)
+                bundle.putSerializable(
+                    MovieBottomSheetDialogFragment.CONTENT_TYPE_ARG,
+                    MovieBottomSheetDialogFragment.ContentType.MOVIE
+                )
+                MAIN.navController.navigate(R.id.movieBottomSheetDialogFragment, bundle)
             }
         }
     }
 
 
+    companion object {
+        const val MOVIE_ARG = "MOVIE_ARG"
+    }
 }

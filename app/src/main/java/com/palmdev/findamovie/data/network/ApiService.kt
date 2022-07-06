@@ -52,13 +52,13 @@ interface ApiService {
         @Query("language") language: String
     ): Response<MovieDetailsDto>
 
-    @GET("movie/{movie_id}/reviews?api_key=$API_KEY")
+    @GET("movie/{movie_id}/videos?api_key=$API_KEY")
     suspend fun getMovieVideos(
         @Path("movie_id") movieID: Int,
         @Query("language") language: String
     ): Response<ListOfVideosDto>
 
-    @GET("movie/{movie_id}/videos?api_key=$API_KEY")
+    @GET("movie/{movie_id}/reviews?api_key=$API_KEY")
     suspend fun getMovieReviews(
         @Path("movie_id") movieID: Int,
         @Query("language") language: String

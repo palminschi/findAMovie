@@ -55,7 +55,11 @@ class TVShowRepositoryImpl(private val apiService: ApiService) : TVShowRepositor
     }
 
     override suspend fun getTVShowReviews(tvID: Int, language: String): ListOfReviews? {
-        return apiService.getTVShowReviews(tvID, language).body()?.let {
+        val list = apiService.getTVShowReviews(tvID, language).body()
+        list?.let {
+            if (it.total_results == 0) return null
+        }
+        return list?.let {
             listOfReviewsMapper.mapToDomain(it)
         }
     }

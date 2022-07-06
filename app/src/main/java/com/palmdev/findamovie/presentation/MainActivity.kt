@@ -1,8 +1,8 @@
 package com.palmdev.findamovie.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -10,7 +10,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.palmdev.findamovie.Const
 import com.palmdev.findamovie.MAIN
 import com.palmdev.findamovie.R
-import com.palmdev.findamovie.data.storage.FavoriteMoviesIDStorage
 import java.util.*
 
 class MainActivity : AppCompatActivity() {

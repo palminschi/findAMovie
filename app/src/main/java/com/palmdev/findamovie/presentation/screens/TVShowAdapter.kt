@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.palmdev.findamovie.MAIN
-import com.palmdev.findamovie.MOVIE_IMAGE_PATH
+import com.palmdev.findamovie.IMAGE_URL
 import com.palmdev.findamovie.R
-import com.palmdev.findamovie.domain.entity.movie.Movie
 import com.palmdev.findamovie.domain.entity.tvshow.TVShow
-import com.palmdev.findamovie.presentation.screens.main.MainFragment
+import com.palmdev.findamovie.presentation.screens.movie_bottom_sheet.MovieBottomSheetDialogFragment
 import kotlinx.android.synthetic.main.item_movie_detailed.view.*
 import kotlinx.android.synthetic.main.item_movie_detailed.view.movieImg
 import kotlinx.android.synthetic.main.item_movie_detailed.view.movieTitle
@@ -54,9 +53,9 @@ class TVShowAdapter(private val adapterType: AdapterType) :
             when (adapterType) {
                 AdapterType.SIMPLE -> {
                     view.movieTitle.text = tvShow.name
-                    view.movieVote.text = tvShow.vote_average.toString()
+                    view.movieVote.text = tvShow.vote_average.toString().subSequence(0,3)
                     Glide.with(view)
-                        .load(MOVIE_IMAGE_PATH + tvShow.poster_path)
+                        .load(IMAGE_URL + tvShow.poster_path)
                         .placeholder(R.drawable.image_loading)
                         .into(view.movieImg)
                 }
@@ -64,7 +63,7 @@ class TVShowAdapter(private val adapterType: AdapterType) :
                     view.movieTitle.text = tvShow.name
                     view.movieDate.text = tvShow.first_air_date
                     Glide.with(view)
-                        .load(MOVIE_IMAGE_PATH + tvShow.poster_path)
+                        .load(IMAGE_URL + tvShow.poster_path)
                         .placeholder(R.drawable.image_loading)
                         .into(view.movieImg)
                 }
@@ -72,11 +71,18 @@ class TVShowAdapter(private val adapterType: AdapterType) :
 
             view.rootView.setOnClickListener {
                 val bundle = Bundle()
-                bundle.putSerializable(MainFragment.MOVIE_ARG, tvShow)
-                MAIN.navController.navigate(R.id.detailsFragment, bundle) // TODO
+                bundle.putSerializable(TV_SHOW_ARG, tvShow)
+                bundle.putSerializable(
+                    MovieBottomSheetDialogFragment.CONTENT_TYPE_ARG,
+                    MovieBottomSheetDialogFragment.ContentType.TV_SHOW
+                )
+                MAIN.navController.navigate(R.id.movieBottomSheetDialogFragment, bundle)
             }
         }
     }
 
 
+    companion object {
+        const val TV_SHOW_ARG = "TV_SHOW_ARG"
+    }
 }

@@ -10,7 +10,9 @@ class GetTVShowReviewsUseCase(private val tvShowRepository: TVShowRepository) {
         tvID: Int,
         language: String = DEFAULT_LANGUAGE
     ): ListOfReviews? {
-        return tvShowRepository.getTVShowReviews(tvID, language)
+        var reviews = tvShowRepository.getTVShowReviews(tvID, language)
+        if (reviews == null) reviews = tvShowRepository.getTVShowReviews(tvID, DEFAULT_LANGUAGE)
+        return reviews
     }
 
 }

@@ -39,6 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardView"
+        android:ellipsize="end"
         tools:text="Avengers"
         tools:textColor="@color/black" />
 

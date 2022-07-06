@@ -3,6 +3,7 @@
     <string name="home">Home</string>
     <string name="favorites">Favorites</string>
     <string name="more">More</string>
+    <string name="detailsAndMore">Details &amp; More</string>
 
     <string name="searchHint">Movies, TV Shows, Persons</string>
     <string name="nowPlayingMovie">Now Playing</string>
@@ -11,4 +12,12 @@
     <string name="topRatedMovies">Top Rated Movies</string>
     <string name="popularTVShows">Popular TV Shows</string>
     <string name="topRatedTVShows">Top Rated TV Shows</string>
+    <string name="similarMovies">Similar Movies:</string>
+    <string name="similarTVShows">Similar TV Shows:</string>
+    <string name="reviews">Reviews:</string>
+
+    <string name="releaseDate">Release date:</string>
+    <string name="votes">votes</string>
+    <string name="country">Country:</string>
+    <string name="seasons">Seasons:</string>
 </resources>

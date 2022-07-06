@@ -1,11 +1,11 @@
 package com.palmdev.findamovie.data.mappers
 
 import com.palmdev.findamovie.data.entity.VideoDto
-import com.palmdev.findamovie.domain.entity.Video
+import com.palmdev.findamovie.domain.entity.VideoInfo
 
-class VideoMapper: Mapper<VideoDto, Video> {
-    override fun mapToDomain(dataModel: VideoDto): Video {
-        return Video(
+class VideoMapper: Mapper<VideoDto, VideoInfo> {
+    override fun mapToDomain(dataModel: VideoDto): VideoInfo {
+        return VideoInfo(
             id = dataModel.id,
             iso_3166_1 = dataModel.iso_3166_1,
             iso_639_1 = dataModel.iso_639_1,
@@ -19,7 +19,7 @@ class VideoMapper: Mapper<VideoDto, Video> {
         )
     }
 
-    override fun mapToData(domainModel: Video): VideoDto {
+    override fun mapToData(domainModel: VideoInfo): VideoDto {
         return VideoDto(
             id = domainModel.id,
             iso_3166_1 = domainModel.iso_3166_1,

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.FindAMovie" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.FindAMovie" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryVariant">@color/red_2</item>
@@ -10,24 +10,11 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorOnPrimary</item>
         <!-- Customize your theme here. -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="android:textViewStyle">@style/TextViewStyle</item>
         <item name="buttonStyle">@style/ButtonStyle</item>
-    </style>
-    
-    <style name="TextViewStyle" parent="android:Widget.TextView">
-        <item name="font">@font/raleway_medium</item>
-        <item name="fontFamily">@font/raleway_medium</item>
-        <item name="android:font" tools:targetApi="o">@font/raleway_medium</item>
-        <item name="android:fontFamily" tools:targetApi="o">@font/raleway_medium</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <style name="ButtonStyle" parent="android:Widget.Button">
-        <item name="font">@font/raleway_medium</item>
-        <item name="fontFamily">@font/raleway_medium</item>
-        <item name="android:font" tools:targetApi="o">@font/raleway_medium</item>
-        <item name="android:fontFamily" tools:targetApi="o">@font/raleway_medium</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogTheme</item>
     </style>
 </resources>

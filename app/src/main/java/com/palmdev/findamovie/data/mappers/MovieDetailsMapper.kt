@@ -14,7 +14,7 @@ class MovieDetailsMapper : Mapper<MovieDetailsDto, MovieDetails> {
             adult = dataModel.adult,
             backdrop_path = dataModel.backdrop_path,
             budget = dataModel.budget,
-            genres = dataModel.genre.map {
+            genres = dataModel.genre?.map {
                 Genre(id = it.id, name = it.name)
             },
             homepage = dataModel.homepage,
@@ -45,7 +45,7 @@ class MovieDetailsMapper : Mapper<MovieDetailsDto, MovieDetails> {
             adult = domainModel.adult,
             backdrop_path = domainModel.backdrop_path,
             budget = domainModel.budget,
-            genre = domainModel.genres.map {
+            genre = domainModel.genres?.map {
                 GenreDto(id = it.id, name = it.name)
             },
             homepage = domainModel.homepage,

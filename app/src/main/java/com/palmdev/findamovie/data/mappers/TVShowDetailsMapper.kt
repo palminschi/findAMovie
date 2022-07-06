@@ -2,12 +2,14 @@ package com.palmdev.findamovie.data.mappers
 
 import com.palmdev.findamovie.data.entity.GenreDto
 import com.palmdev.findamovie.data.entity.ProductionCountryDto
+import com.palmdev.findamovie.data.entity.tvshow.NextEpisodeDto
 import com.palmdev.findamovie.data.entity.tvshow.TVShowDetailsDto
 import com.palmdev.findamovie.domain.entity.Genre
 import com.palmdev.findamovie.domain.entity.ProductionCountry
+import com.palmdev.findamovie.domain.entity.tvshow.NextEpisode
 import com.palmdev.findamovie.domain.entity.tvshow.TVShowDetails
 
-class TVShowDetailsMapper: Mapper<TVShowDetailsDto, TVShowDetails> {
+class TVShowDetailsMapper : Mapper<TVShowDetailsDto, TVShowDetails> {
     override fun mapToDomain(dataModel: TVShowDetailsDto): TVShowDetails {
         return TVShowDetails(
             backdrop_path = dataModel.backdrop_path,
@@ -21,7 +23,15 @@ class TVShowDetailsMapper: Mapper<TVShowDetailsDto, TVShowDetails> {
             in_production = dataModel.in_production,
             last_air_date = dataModel.last_air_date,
             name = dataModel.name,
-            next_episode_to_air = dataModel.next_episode_to_air,
+            next_episode_to_air = NextEpisode(
+                air_date = dataModel.next_episode_to_air?.air_date,
+                episode_number = dataModel.next_episode_to_air?.episode_number,
+                id = dataModel.next_episode_to_air?.id,
+                name = dataModel.next_episode_to_air?.name,
+                overview = dataModel.next_episode_to_air?.overview,
+                runtime = dataModel.next_episode_to_air?.runtime,
+                season_number = dataModel.next_episode_to_air?.season_number
+            ),
             number_of_episodes = dataModel.number_of_episodes,
             number_of_seasons = dataModel.number_of_seasons,
             origin_country = dataModel.origin_country,
@@ -57,7 +67,15 @@ class TVShowDetailsMapper: Mapper<TVShowDetailsDto, TVShowDetails> {
             in_production = domainModel.in_production,
             last_air_date = domainModel.last_air_date,
             name = domainModel.name,
-            next_episode_to_air = domainModel.next_episode_to_air,
+            next_episode_to_air = NextEpisodeDto(
+                air_date = domainModel.next_episode_to_air?.air_date,
+                episode_number = domainModel.next_episode_to_air?.episode_number,
+                id = domainModel.next_episode_to_air?.id,
+                name = domainModel.next_episode_to_air?.name,
+                overview = domainModel.next_episode_to_air?.overview,
+                runtime = domainModel.next_episode_to_air?.runtime,
+                season_number = domainModel.next_episode_to_air?.season_number
+            ),
             number_of_episodes = domainModel.number_of_episodes,
             number_of_seasons = domainModel.number_of_seasons,
             origin_country = domainModel.origin_country,

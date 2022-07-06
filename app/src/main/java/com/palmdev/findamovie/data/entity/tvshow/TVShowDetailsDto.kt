@@ -13,7 +13,7 @@ data class TVShowDetailsDto(
     val in_production: Boolean,
     val last_air_date: String,
     val name: String,
-    val next_episode_to_air: Any, //TODO to delete maybe
+    val next_episode_to_air: NextEpisodeDto?,
     val number_of_episodes: Int,
     val number_of_seasons: Int,
     val origin_country: List<String>,
@@ -25,7 +25,7 @@ data class TVShowDetailsDto(
     val production_countries: List<ProductionCountryDto>,
     val seasons: List<SeasonDto>,
     val status: String,
-    val tagline: String,
+    val tagline: String?,
     val type: String,
     val vote_average: Double,
     val vote_count: Int

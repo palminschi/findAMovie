@@ -11,11 +11,10 @@ import com.palmdev.findamovie.presentation.screens.MovieAdapter
 import com.palmdev.findamovie.presentation.screens.TVShowAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainFragment : Fragment(R.layout.fragment_main) {
+class MainFragment : Fragment() {
 
     private var mBinding: FragmentMainBinding? = null
     private val binding get() = mBinding!!
-    private val adapter by lazy { MovieAdapter(adapterType = MovieAdapter.AdapterType.SIMPLE) }
     private val viewModel: MainViewModel by viewModel()
 
     override fun onCreateView(
@@ -87,9 +86,4 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         super.onDestroyView()
         mBinding = null
     }
-
-    companion object {
-        const val MOVIE_ARG = "MOVIE_ARG"
-    }
-
 }

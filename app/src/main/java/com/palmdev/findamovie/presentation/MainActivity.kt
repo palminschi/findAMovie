@@ -1,7 +1,9 @@
 package com.palmdev.findamovie.presentation
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -33,6 +35,17 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+    }
+
+    companion object {
+        fun hideKeyboard() {
+            val inputMethodManager = MAIN.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(MAIN.currentFocus?.windowToken, 0)
+        }
+        fun openKeyboard(view: View) {
+            val inputMethodManager = MAIN.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.showSoftInput(view, 0)
+        }
     }
 
 }

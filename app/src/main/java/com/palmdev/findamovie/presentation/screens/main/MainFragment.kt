@@ -1,15 +1,21 @@
 package com.palmdev.findamovie.presentation.screens.main
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.palmdev.findamovie.R
 import com.palmdev.findamovie.databinding.FragmentMainBinding
 import com.palmdev.findamovie.presentation.screens.MovieAdapter
 import com.palmdev.findamovie.presentation.screens.TVShowAdapter
+import com.palmdev.findamovie.presentation.screens.search.SearchFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class MainFragment : Fragment() {
 
@@ -32,8 +38,10 @@ class MainFragment : Fragment() {
 
     private fun init() {
         viewModel.getMovies()
-        binding.searchEditText.clearFocus()
-        binding.searchEditText.focusable = View.NOT_FOCUSABLE
+
+        binding.searchEditText.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_searchFragment)
+        }
 
         val nowPlayingMoviesAdapter = MovieAdapter(MovieAdapter.AdapterType.SIMPLE)
         val popularTVShowsAdapter = TVShowAdapter(TVShowAdapter.AdapterType.SIMPLE)

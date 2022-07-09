@@ -5,7 +5,7 @@ import java.io.Serializable
 data class TVShow(
     val database_id: Int? = null,
     val backdrop_path: String?,
-    val first_air_date: String,
+    val first_air_date: String?,
     val id: Int,
     val name: String,
     val original_language: String,

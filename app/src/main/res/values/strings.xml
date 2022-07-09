@@ -4,6 +4,9 @@
     <string name="favorites">Favorites</string>
     <string name="more">More</string>
     <string name="detailsAndMore">Details &amp; More</string>
+    <string name="movies">Movies</string>
+    <string name="tvShows">TV Shows</string>
+    <string name="persons">Persons</string>
 
     <string name="searchHint">Movies, TV Shows, Persons</string>
     <string name="nowPlayingMovie">Now Playing</string>

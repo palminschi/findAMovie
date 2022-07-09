@@ -4,6 +4,7 @@ import com.palmdev.findamovie.presentation.screens.movie_details.MovieDetailsVie
 import com.palmdev.findamovie.presentation.screens.favorites.FavoritesViewModel
 import com.palmdev.findamovie.presentation.screens.main.MainViewModel
 import com.palmdev.findamovie.presentation.screens.movie_bottom_sheet.MovieBottomSheetViewModel
+import com.palmdev.findamovie.presentation.screens.search.SearchViewModel
 import com.palmdev.findamovie.presentation.screens.tv_show_details.TVShowDetailsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -59,6 +60,12 @@ val presentationModule = module {
             saveFavoriteTVShowUseCase = get(),
             deleteFavoriteMovieUseCase = get(),
             deleteFavoriteTVShowUseCase = get()
+        )
+    }
+
+    viewModel {
+        SearchViewModel(
+            searchUseCase = get()
         )
     }
 }

@@ -13,7 +13,9 @@ import com.palmdev.findamovie.R
 import com.palmdev.findamovie.databinding.FragmentMainBinding
 import com.palmdev.findamovie.presentation.screens.MovieAdapter
 import com.palmdev.findamovie.presentation.screens.TVShowAdapter
+import com.palmdev.findamovie.presentation.screens.movies_list.MoviesListFragment
 import com.palmdev.findamovie.presentation.screens.search.SearchFragment
+import com.palmdev.findamovie.presentation.screens.tv_shows_list.TVShowsListFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -87,6 +89,43 @@ class MainFragment : Fragment() {
             moviesPage?.results?.let { list ->
                 topRatedMoviesAdapter.setMovies(list = list)
             }
+        }
+
+        binding.moreNowPlayingMoviesButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_mainFragment_to_moviesListFragment,
+                bundleOf(MoviesListFragment.ARG_SELECTED_SPINNER_OPTION to MoviesListFragment.SpinnerOption.NOW_PLAYING)
+            )
+        }
+        binding.moreUpcomingButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_mainFragment_to_moviesListFragment,
+                bundleOf(MoviesListFragment.ARG_SELECTED_SPINNER_OPTION to MoviesListFragment.SpinnerOption.UPCOMING)
+            )
+        }
+        binding.moreTopRatedMoviesButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_mainFragment_to_moviesListFragment,
+                bundleOf(MoviesListFragment.ARG_SELECTED_SPINNER_OPTION to MoviesListFragment.SpinnerOption.TOP_RATED)
+            )
+        }
+        binding.morePopularMoviesButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_mainFragment_to_moviesListFragment,
+                bundleOf(MoviesListFragment.ARG_SELECTED_SPINNER_OPTION to MoviesListFragment.SpinnerOption.POPULAR)
+            )
+        }
+        binding.moreTopRatedTVButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_mainFragment_to_TVShowsListFragment,
+                bundleOf(TVShowsListFragment.ARG_SELECTED_SPINNER_OPTION to TVShowsListFragment.SpinnerOption.TOP_RATED)
+            )
+        }
+        binding.morePopularTVShowsButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_mainFragment_to_TVShowsListFragment,
+                bundleOf(TVShowsListFragment.ARG_SELECTED_SPINNER_OPTION to TVShowsListFragment.SpinnerOption.POPULAR)
+            )
         }
     }
 

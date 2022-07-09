@@ -1,4 +1,4 @@
-package com.palmdev.findamovie.presentation.screens.movies_list
+package com.palmdev.findamovie.presentation.screens.tv_shows_list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,28 +7,30 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
-import com.palmdev.findamovie.databinding.FragmentMoviesListBinding
-import com.palmdev.findamovie.presentation.screens.MovieAdapter
+import com.palmdev.findamovie.R
+import com.palmdev.findamovie.databinding.FragmentTvShowsListBinding
+import com.palmdev.findamovie.presentation.screens.TVShowAdapter
+import com.palmdev.findamovie.presentation.screens.movies_list.MoviesListFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MoviesListFragment : Fragment() {
+class TVShowsListFragment : Fragment() {
 
-    enum class SpinnerOption { NOW_PLAYING, UPCOMING, TOP_RATED, POPULAR }
+    enum class SpinnerOption { TOP_RATED, POPULAR }
 
-    private val viewModel: MoviesListViewModel by viewModel()
-    private var mBinding: FragmentMoviesListBinding? = null
+    private val viewModel: TVShowsListViewModel by viewModel()
+    private var mBinding: FragmentTvShowsListBinding? = null
     private val binding get() = mBinding!!
-    private val movieAdapter by lazy { MovieAdapter(adapterType = MovieAdapter.AdapterType.DETAILED) }
+    private val tvShowAdapter by lazy { TVShowAdapter(adapterType = TVShowAdapter.AdapterType.DETAILED) }
     private val currentPage = MutableLiveData<Int>()
     private var totalPages = MutableLiveData<Int>()
     private var spinnerPosition = 0
-    private var spinnerOption = SpinnerOption.NOW_PLAYING
+    private var spinnerOption = SpinnerOption.POPULAR
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = FragmentMoviesListBinding.inflate(layoutInflater, container, false)
+        mBinding = FragmentTvShowsListBinding.inflate(layoutInflater, container, false)
         arguments?.getSerializable(ARG_SELECTED_SPINNER_OPTION)?.let {
             spinnerOption = it as SpinnerOption
         }
@@ -43,12 +45,10 @@ class MoviesListFragment : Fragment() {
     }
 
     private fun init() {
-        binding.recyclerView.adapter = movieAdapter
+        binding.recyclerView.adapter = tvShowAdapter
         when (spinnerOption) {
-            SpinnerOption.NOW_PLAYING -> binding.spinner.setSelection(0)
-            SpinnerOption.UPCOMING -> binding.spinner.setSelection(1)
-            SpinnerOption.TOP_RATED -> binding.spinner.setSelection(2)
-            SpinnerOption.POPULAR -> binding.spinner.setSelection(3)
+            SpinnerOption.POPULAR -> binding.spinner.setSelection(0)
+            SpinnerOption.TOP_RATED -> binding.spinner.setSelection(1)
         }
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -89,30 +89,16 @@ class MoviesListFragment : Fragment() {
     private fun updateMovies(spinnerPosition: Int) {
         when (spinnerPosition) {
             0 -> {
-                viewModel.getNowPlayingMovies(page = currentPage.value!!)
-                viewModel.nowPlayingMovies.observe(viewLifecycleOwner) {
-                    movieAdapter.setMovies(it.results)
+                viewModel.getPopularTVShows(page = currentPage.value!!)
+                viewModel.popularTVShows.observe(viewLifecycleOwner) {
+                    tvShowAdapter.setTVShows(it.results)
                     totalPages.value = it.total_pages
                 }
             }
             1 -> {
-                viewModel.getUpcomingMovies(page = currentPage.value!!)
-                viewModel.upcomingMovies.observe(viewLifecycleOwner) {
-                    movieAdapter.setMovies(it.results)
-                    totalPages.value = it.total_pages
-                }
-            }
-            2 -> {
-                viewModel.getTopRatedMovies(page = currentPage.value!!)
-                viewModel.topRatedMovies.observe(viewLifecycleOwner) {
-                    movieAdapter.setMovies(it.results)
-                    totalPages.value = it.total_pages
-                }
-            }
-            3 -> {
-                viewModel.getPopularMovies(page = currentPage.value!!)
-                viewModel.popularMovies.observe(viewLifecycleOwner) {
-                    movieAdapter.setMovies(it.results)
+                viewModel.getTopRatedTVShows(page = currentPage.value!!)
+                viewModel.topRatedTVShows.observe(viewLifecycleOwner) {
+                    tvShowAdapter.setTVShows(it.results)
                     totalPages.value = it.total_pages
                 }
             }

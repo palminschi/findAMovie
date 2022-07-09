@@ -7,6 +7,7 @@ import com.palmdev.findamovie.presentation.screens.movie_bottom_sheet.MovieBotto
 import com.palmdev.findamovie.presentation.screens.movies_list.MoviesListViewModel
 import com.palmdev.findamovie.presentation.screens.search.SearchViewModel
 import com.palmdev.findamovie.presentation.screens.tv_show_details.TVShowDetailsViewModel
+import com.palmdev.findamovie.presentation.screens.tv_shows_list.TVShowsListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -71,6 +72,12 @@ val presentationModule = module {
             getPopularMoviesUseCase = get(),
             getNowPlayingMoviesUseCase = get(),
             getUpcomingMoviesUseCase = get()
+        )
+    }
+    viewModel {
+        TVShowsListViewModel(
+            getPopularTVShowsUseCase = get(),
+            getTopRatedTVShowsUseCase = get()
         )
     }
 }

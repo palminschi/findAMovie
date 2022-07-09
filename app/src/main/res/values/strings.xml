@@ -30,4 +30,8 @@
         <item>Top Rated Movies</item>
         <item>Popular Movies</item>
     </string-array>
+    <string-array name="tvShowSpinner">
+        <item>Popular TV-Shows</item>
+        <item>Top Rated TV-Shows</item>
+    </string-array>
 </resources>

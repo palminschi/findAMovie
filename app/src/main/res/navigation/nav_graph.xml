@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_mainFragment_to_moviesListFragment"
             app:destination="@id/moviesListFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_TVShowsListFragment"
+            app:destination="@id/TVShowsListFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -93,6 +96,18 @@
             app:destination="@id/movieBottomSheetDialogFragment" />
         <action
             android:id="@+id/action_moviesListFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/TVShowsListFragment"
+        android:name="com.palmdev.findamovie.presentation.screens.tv_shows_list.TVShowsListFragment"
+        android:label="fragment_tv_shows_list"
+        tools:layout="@layout/fragment_tv_shows_list" >
+        <action
+            android:id="@+id/action_TVShowsListFragment_to_movieBottomSheetDialogFragment"
+            app:destination="@id/movieBottomSheetDialogFragment" />
+        <action
+            android:id="@+id/action_TVShowsListFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

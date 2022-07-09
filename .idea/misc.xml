@@ -7,6 +7,7 @@
         <entry key="..\:/Projects/findAMovie/app/src/main/res/drawable/favorite_toggle_button_background.xml" value="0.1855" />
         <entry key="..\:/Projects/findAMovie/app/src/main/res/drawable/ic_close.xml" value="0.197" />
         <entry key="..\:/Projects/findAMovie/app/src/main/res/drawable/ic_favorite_border.xml" value="0.1855" />
+        <entry key="..\:/Projects/findAMovie/app/src/main/res/drawable/style_ic_tv_show.xml" value="0.197" />
         <entry key="..\:/Projects/findAMovie/app/src/main/res/font/raleway.xml" value="0.3229166666666667" />
         <entry key="..\:/Projects/findAMovie/app/src/main/res/layout/activity_main.xml" value="0.2879999900124293" />
         <entry key="..\:/Projects/findAMovie/app/src/main/res/layout/fragment_details.xml" value="0.21818181061547676" />
@@ -16,6 +17,7 @@
         <entry key="..\:/Projects/findAMovie/app/src/main/res/layout/fragment_movie_bottom_sheet_dialog.xml" value="0.19199999334161955" />
         <entry key="..\:/Projects/findAMovie/app/src/main/res/layout/fragment_movies_list.xml" value="0.2879999900124293" />
         <entry key="..\:/Projects/findAMovie/app/src/main/res/layout/fragment_search.xml" value="0.2879999900124293" />
+        <entry key="..\:/Projects/findAMovie/app/src/main/res/layout/fragment_tv_shows_list.xml" value="0.29270833333333335" />
         <entry key="..\:/Projects/findAMovie/app/src/main/res/layout/item_movie.xml" value="0.5833333333333334" />
         <entry key="..\:/Projects/findAMovie/app/src/main/res/layout/item_movie_detailed.xml" value="0.2879999900124293" />
         <entry key="..\:/Projects/findAMovie/app/src/main/res/layout/item_movie_simple.xml" value="0.4363636212309535" />

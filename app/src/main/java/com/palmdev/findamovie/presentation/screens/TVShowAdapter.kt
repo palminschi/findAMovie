@@ -62,6 +62,8 @@ class TVShowAdapter(private val adapterType: AdapterType) :
                 AdapterType.DETAILED -> {
                     view.movieTitle.text = tvShow.name
                     view.movieDate.text = tvShow.first_air_date
+                    view.movieOverview.text = tvShow.overview
+                    view.movieRating.text = tvShow.vote_average.toString().subSequence(0,3)
                     Glide.with(view)
                         .load(IMAGE_URL + tvShow.poster_path)
                         .placeholder(R.drawable.image_loading)

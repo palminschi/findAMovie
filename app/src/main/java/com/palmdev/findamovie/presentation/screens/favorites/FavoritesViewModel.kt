@@ -5,30 +5,33 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.palmdev.findamovie.domain.entity.movie.Movie
+import com.palmdev.findamovie.domain.entity.tvshow.TVShow
 import com.palmdev.findamovie.domain.usecase.movie.GetFavoriteMoviesUseCase
 import com.palmdev.findamovie.domain.usecase.SearchUseCase
+import com.palmdev.findamovie.domain.usecase.tvshow.GetFavoriteTVShowsUseCase
 import kotlinx.coroutines.launch
 
 class FavoritesViewModel(
     private val getFavoriteMoviesUseCase: GetFavoriteMoviesUseCase,
-    private val searchUseCase: SearchUseCase
-) :
-    ViewModel() {
+    private val getFavoriteTVShowsUseCase: GetFavoriteTVShowsUseCase
+) : ViewModel() {
+
     private val _favoriteMovies = MutableLiveData<List<Movie>>()
     val favoriteMovies: LiveData<List<Movie>> = _favoriteMovies
+    private val _favoriteTVShows = MutableLiveData<List<TVShow>>()
+    val favoriteTVShows: LiveData<List<TVShow>> = _favoriteTVShows
 
-    fun getMovies() {
+    fun getFavorites() {
         viewModelScope.launch {
             getFavoriteMoviesUseCase.invoke().collect {
                 _favoriteMovies.value = it
             }
         }
-    }
-
-    init {
         viewModelScope.launch {
-            val response = searchUseCase.invoke(query = "Tom Ha")
-            response?.results
+            getFavoriteTVShowsUseCase.invoke().collect {
+                _favoriteTVShows.value = it
+            }
         }
     }
+
 }

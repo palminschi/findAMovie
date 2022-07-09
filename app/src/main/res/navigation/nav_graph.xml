@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_favoritesFragment_to_movieBottomSheetDialogFragment"
             app:destination="@id/movieBottomSheetDialogFragment" />
+        <action
+            android:id="@+id/action_favoritesFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailsFragment"

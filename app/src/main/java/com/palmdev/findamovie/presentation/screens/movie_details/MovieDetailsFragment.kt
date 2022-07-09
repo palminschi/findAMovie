@@ -24,7 +24,6 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_details) {
     private val binding get() = mBinding!!
     private val viewModel: MovieDetailsViewModel by viewModel()
     private var movieID: Int = 0
-    private val mediaPlayer = MediaPlayer()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

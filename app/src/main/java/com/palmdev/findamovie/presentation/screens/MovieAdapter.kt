@@ -61,6 +61,8 @@ class MovieAdapter(private val adapterType: AdapterType) :
                 AdapterType.DETAILED -> {
                     view.movieTitle.text = movie.title
                     view.movieDate.text = movie.release_date
+                    view.movieOverview.text = movie.overview
+                    view.movieRating.text = movie.vote_average.toString().subSequence(0,3)
                     Glide.with(view)
                         .load(IMAGE_URL + movie.poster_path)
                         .placeholder(R.drawable.image_loading)

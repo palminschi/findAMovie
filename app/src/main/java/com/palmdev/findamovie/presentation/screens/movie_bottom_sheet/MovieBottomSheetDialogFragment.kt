@@ -59,7 +59,7 @@ class MovieBottomSheetDialogFragment : BottomSheetDialogFragment() {
         movie?.let { movie ->
             binding.movieTitle.text = movie.title
             binding.movieOverview.text = movie.overview
-            binding.movieRate.text = movie.vote_average.toString()
+            binding.movieRate.text = movie.vote_average.toString().subSequence(0,3)
             binding.movieReleaseDate.text = movie.release_date
             movie.poster_path?.let { poster_path ->
                 Glide.with(this)

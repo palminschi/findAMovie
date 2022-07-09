@@ -48,7 +48,7 @@ val presentationModule = module {
     viewModel {
         FavoritesViewModel(
             getFavoriteMoviesUseCase = get(),
-            get()
+            getFavoriteTVShowsUseCase = get()
         )
     }
 

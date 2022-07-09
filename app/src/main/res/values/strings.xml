@@ -23,4 +23,11 @@
     <string name="votes">votes</string>
     <string name="country">Country:</string>
     <string name="seasons">Seasons:</string>
+
+    <string-array name="movieSpinner">
+        <item>Now Playing Movies</item>
+        <item>Upcoming Movies</item>
+        <item>Top Rated Movies</item>
+        <item>Popular Movies</item>
+    </string-array>
 </resources>

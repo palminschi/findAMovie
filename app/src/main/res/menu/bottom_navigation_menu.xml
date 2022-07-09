@@ -6,6 +6,12 @@
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/home" />
+
+    <item
+        android:id="@+id/moviesListFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/movies"/>
     <item
         android:id="@+id/favoritesFragment"
         android:enabled="true"

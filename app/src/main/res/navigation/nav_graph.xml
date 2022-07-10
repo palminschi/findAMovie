@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.palmdev.findamovie.presentation.screens.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_movieBottomSheetDialogFragment"
+            app:destination="@id/movieBottomSheetDialogFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_moviesListFragment"
+            app:destination="@id/moviesListFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_TVShowsListFragment"
+            app:destination="@id/TVShowsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.palmdev.findamovie.presentation.screens.favorites.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_movieBottomSheetDialogFragment"
+            app:destination="@id/movieBottomSheetDialogFragment" />
+        <action
+            android:id="@+id/action_favoritesFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.palmdev.findamovie.presentation.screens.movie_details.MovieDetailsFragment"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/movieBottomSheetDialogFragment"
+        android:name="com.palmdev.findamovie.presentation.screens.movie_bottom_sheet.MovieBottomSheetDialogFragment"
+        android:label="fragment_movie_bottom_sheet_dialog"
+        tools:layout="@layout/fragment_movie_bottom_sheet_dialog" >
+        <action
+            android:id="@+id/action_movieBottomSheetDialogFragment_to_TVShowDetailsFragment"
+            app:destination="@id/TVShowDetailsFragment" />
+        <action
+            android:id="@+id/action_movieBottomSheetDialogFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/TVShowDetailsFragment"
+        android:name="com.palmdev.findamovie.presentation.screens.tv_show_details.TVShowDetailsFragment"
+        android:label="TVShowDetailsFragment"
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_TVShowDetailsFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/action_TVShowDetailsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.palmdev.findamovie.presentation.screens.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_movieBottomSheetDialogFragment"
+            app:destination="@id/movieBottomSheetDialogFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesListFragment"
+        android:name="com.palmdev.findamovie.presentation.screens.movies_list.MoviesListFragment"
+        android:label="fragment_movies_list"
+        tools:layout="@layout/fragment_movies_list" >
+        <action
+            android:id="@+id/action_moviesListFragment_to_movieBottomSheetDialogFragment"
+            app:destination="@id/movieBottomSheetDialogFragment" />
+        <action
+            android:id="@+id/action_moviesListFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/TVShowsListFragment"
+        android:name="com.palmdev.findamovie.presentation.screens.tv_shows_list.TVShowsListFragment"
+        android:label="fragment_tv_shows_list"
+        tools:layout="@layout/fragment_tv_shows_list" >
+        <action
+            android:id="@+id/action_TVShowsListFragment_to_movieBottomSheetDialogFragment"
+            app:destination="@id/movieBottomSheetDialogFragment" />
+        <action
+            android:id="@+id/action_TVShowsListFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>

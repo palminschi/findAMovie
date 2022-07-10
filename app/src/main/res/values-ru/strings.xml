@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Найди Фильм</string>
+    <string name="home">Главная</string>
+    <string name="favorites">Сохранённые</string>
+    <string name="more">Ещё</string>
+    <string name="detailsAndMore">Подробности &amp; Другое</string>
+    <string name="movies">Фильмы</string>
+    <string name="tvShows">Сериалы</string>
+    <string name="persons">Личности</string>
+
+    <string name="searchHint">Фильмы, Сериалы, Личности</string>
+    <string name="nowPlayingMovie">Сейчас смотрят</string>
+    <string name="upcoming">Скоро в кино</string>
+    <string name="popularMovies">Популярные фильмы</string>
+    <string name="topRatedMovies">Лучшие фильмы</string>
+    <string name="popularTVShows">Популярные сериалы</string>
+    <string name="topRatedTVShows">Лучшие сериалы</string>
+    <string name="similarMovies">Похожие фильмы:</string>
+    <string name="similarTVShows">Похожие сериалы:</string>
+    <string name="reviews">Отзывы:</string>
+
+    <string name="releaseDate">Дата выхода:</string>
+    <string name="votes">оценок</string>
+    <string name="country">Страна:</string>
+    <string name="seasons">Сезонов:</string>
+
+    <string-array name="movieSpinner">
+        <item>Сейчас смотрят</item>
+        <item>Скоро в кино</item>
+        <item>Лучшие</item>
+        <item>Популярные</item>
+    </string-array>
+    <string-array name="tvShowSpinner">
+        <item>Популярные</item>
+        <item>Лучшие</item>
+    </string-array>
+</resources>

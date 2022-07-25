@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "509149241488",
+    "project_id": "findamovie",
+    "storage_bucket": "findamovie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509149241488:android:4916e980a13bd14930f815",
+        "android_client_info": {
+          "package_name": "com.palmdev.findAMovie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509149241488-06mpvqrmpgp6v8av07s74tuavmucg2cq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTBcoDGstc6zoB-3qruE_mYNRvq6EB7Kk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "509149241488-06mpvqrmpgp6v8av07s74tuavmucg2cq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

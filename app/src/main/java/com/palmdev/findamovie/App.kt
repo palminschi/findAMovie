@@ -39,5 +39,6 @@ class App : Application() {
                 Log.d("TAG", "Token ->$token")
             }
 
+
     }
 }

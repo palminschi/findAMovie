@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:509149241488:android:4916e980a13bd14930f815",
+        "mobilesdk_app_id": "1:509149241488:android:45b83735e13d31e230f815",
         "android_client_info": {
-          "package_name": "com.palmdev.findAMovie"
+          "package_name": "com.palmdev.findamovie"
         }
       },
       "oauth_client": [
